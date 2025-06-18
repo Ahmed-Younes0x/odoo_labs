@@ -1,0 +1,7 @@
+<odoo>
+
+    <menuitem id="hospital_root_menu" name="hospital"/>
+    <menuitem id="hospital_patients_menu" name="patients" parent="hospital_root_menu"/>
+    <menuitem id="hospital_departments_menu" name="departments" parent="hospital_root_menu"/> 
+    <menuitem id="hospital_doctors_menu" name="doctors" parent="hospital_root_menu"/>
+</odoo>

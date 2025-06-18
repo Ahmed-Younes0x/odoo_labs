@@ -1,0 +1,5 @@
+<odoo>
+
+    <menuitem id="iti_root_menu" name="ITI"/>
+    <menuitem id="iti_employee_menu" name="Employee" parent="iti_root_menu"/>
+</odoo>

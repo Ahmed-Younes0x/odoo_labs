@@ -1,0 +1,12 @@
+<odoo>
+
+    <!--action-->
+    <record id="iti_student_action" model="ir.actions.act_window">
+        <field name="name">ITI Student Action</field>
+        <field name="res_model">iti.student</field>
+    </record>
+
+     <menuitem id="iti_student_menu" name="Student" parent="iti_employee_menu" action="iti_student_action"/>
+
+
+</odoo>

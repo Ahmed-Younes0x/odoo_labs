@@ -1,0 +1,5 @@
+<odoo>
+
+    <menuitem id="hospital_root_menu" name="hospital"/>
+    <menuitem id="hospital_employee_menu" name="patients" parent="hospital_root_menu"/>
+</odoo>

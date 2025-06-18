@@ -1,0 +1,5 @@
+<odoo>
+
+    <menuitem id="IEEE_root_menu" name="IEEE"/>
+    <menuitem id="IEEE_employee_menu" name="Trainee" parent="IEEE_root_menu"/>
+</odoo>
