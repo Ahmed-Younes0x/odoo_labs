@@ -1,0 +1,14 @@
+
+<odoo>
+
+      <record id="statusreport" model="ir.actions.report">
+            <field name="name">patient Report</field>
+            <field name="model">hms.patient</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">hms.patient_templet</field>
+            <field name="report_file">hms.patient_templet_v2</field>
+            <field name="binding_model_id" ref="model_hms_patient"/>
+            <field name="print_report_name">"Patient Status Report"</field>
+        </record>
+
+</odoo>

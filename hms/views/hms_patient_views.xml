@@ -1,0 +1,100 @@
+<odoo>
+    <!--action-->
+    <record id="hospital_patient_action" model="ir.actions.act_window">
+        <field name="name">hospital patient Action</field>
+        <field name="res_model">hms.patient</field>
+    </record>
+    <record id="hospital_department_action" model="ir.actions.act_window">
+        <field name="name">hospital department Action</field>
+        <field name="res_model">department</field>
+    </record>
+    <record id="hospital_doctor_action" model="ir.actions.act_window">
+        <field name="name">hospital doctor Action</field>
+        <field name="res_model">doctor</field>
+    </record>
+
+    <record id="iti_patient_tree_view" model="ir.ui.view">
+        <field name="name">Patient Tree View</field>
+        <field name="model">hms.patient</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="first_name" />
+                <field name="last_name" />
+                <field name='email' />
+                <field name="age" />
+                <field name="CR_ratio" />
+                <field name="PCR" invisible="1" />
+                <field name="blood_type" />
+            </tree>
+        </field>
+    </record>
+    <record id="hms_patient_form_view" model="ir.ui.view">
+
+        <field name="name">Patient Form View</field>
+        <field name="model">hms.patient</field>
+
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_print_report"
+                        string="Print Status Report"
+                        type="object"
+                        class="btn-primary"/>
+                    <field name="status" widget="statusbar" options="{'clickable':1}" />
+                </header>
+                <sheet>
+                    <notebook>
+                        <page name='personal info'>
+                            <group>
+                                <field name="first_name" string="First Name" required='1' />
+                                <field name="last_name" string="Last Name" required='1' />
+                                <field name='email' />
+                                <field name="age" string="Age" />
+                                <field name="status" string="Status" />
+                                <field name="PCR" string="PCR Test" />
+                                <field name="department_id" string="Department"
+                                    domain="[('is_open','=',True)]" />
+                                <field name="department_capacity" string="Department Capacity"
+                                    readonly="1" />
+                                <field name="doctor_id" string="doctor" group='manager_group' />
+                                <field name="CR_ratio"
+                                    string="CR Ratio"
+                                    invisible="not PCR"
+                                    required="PCR" />
+                                <field name="history"
+                                    string="Medical History"
+                                    invisible="age &lt;= 50" />
+                                    <field name='customer'/>
+                                <field name="blood_type" string="Blood Type" />
+                                <field name="birth_date" string="Birth Date" />
+                                <field name="image" string="Image" />
+                            </group>
+
+                        </page>
+                        <page name="Logs" string="Logs">
+                            <field name="logs"> 
+                                <tree string="Logs">
+                                    <field name="id" string="ID" />
+                                    <field name="description" string="Description" />
+                                    <field name="create_date" string="Created At" />
+                                    <field name="create_uid" string="User" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <menuitem id="hospital_patient_menu" name="patients" parent="hospital_patients_menu"
+        action="hospital_patient_action" />
+    <menuitem id="hospital_doctor_menu" name="doctors" parent="hospital_doctors_menu"
+        action="hospital_doctor_action" />
+    <menuitem id="hospital_department_menu" name="departments" parent="hospital_departments_menu"
+        action="hospital_department_action" />
+
+
+</odoo>
