@@ -35,7 +35,7 @@ class Patient(models.Model):
     
     def create_stat_log(self):
         vals={
-            'description':"Changed state to {self.status}",
+            'description':f"Changed stat to {self.status}",
             'patient': self.id
         }
         self.env['hms.patient.log'].create(vals)
